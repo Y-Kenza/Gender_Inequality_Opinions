@@ -99,17 +99,28 @@ var map = root.container.children.push(
 // Create polygon series
 var polygonSeries = map.series.push(
   am5map.MapPolygonSeries.new(root, {
-    geoJSON: am5geodata_continentsLow,
-    exclude: ["antarctica"],
-    fill: am5.color(0xbbbbbb)
+    geoJSON: am5geodata_worldLow,
+    exclude: ["AQ"],
+    fill: am5.color(0xbbbbbb),
+    stroke: am5.color(0xffffff)
   })
 );
+
+polygonSeries.mapPolygons.template.setAll({
+  tooltipText: "{name}",
+  templateField: "polygonSettings"
+});
 
 var pointSeries = map.series.push(
   am5map.MapPointSeries.new(root, {
     // ...
   })
 );
+
+polygonSeries.mapPolygons.template.states.create("hover", {
+  fill: am5.color(0x677935)
+});
+
 
 pointSeries.bullets.push(function(root, series, x) {
   
