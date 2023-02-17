@@ -123,6 +123,15 @@ polygonSeries.mapPolygons.template.states.create("hover", {
 //ICI
 polygonSeries.mapPolygons.template.events.on("click", (ev) => {
   console.log("MAYBE ?");
+  var dataItem = ev.target.dataItem;
+  var data = dataItem.dataContext;
+  selectedCountry = data.name
+  console.log(selectedCountry)
+  var modal = am5.Modal.new(root, {
+  content: "<h3>Hello, I'm modal!</h3><p>Nice to meet you.</p>"+selectedCountry+""
+});
+  modal.open()
+
 });
 
 let previousPolygon = null;
@@ -131,17 +140,17 @@ polygonSeries.mapPolygons.template.setAll({
   toggleKey: 'active',
 });
 
-polygonSeries.mapPolygons.template.on('active', (active, target) => {
-  if (previousPolygon && previousPolygon !== target) {
-    previousPolygon.set('active', false);
-  }
-  if (target.get('active')) {
-    polygonSeries.zoomToDataItem(target.dataItem);
-  } else {
-    chart.goHome();
-  }
-  previousPolygon = target;
-});
+// polygonSeries.mapPolygons.template.on('active', (active, target) => {
+//   if (previousPolygon && previousPolygon !== target) {
+//     previousPolygon.set('active', false);
+//   }
+//   if (target.get('active')) {
+//     polygonSeries.zoomToDataItem(target.dataItem);
+//   } else {
+//     chart.goHome();
+//   }
+//   previousPolygon = target;
+// });
 
 
 pointSeries.bullets.push(function(root, series, x) {
