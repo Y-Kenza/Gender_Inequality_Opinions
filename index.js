@@ -12,6 +12,7 @@
 
 // Create root and chart
 var root = am5.Root.new("chartdiv"); 
+var colors = am5.ColorSet.new(root, {});
 
 // Set themes
 root.setThemes([
@@ -79,10 +80,6 @@ function parseCSV(data){
           dataProvider.push(dataObject);
       }
   }
-  // set data provider to the chart
-  //dataProvider = dataProvider;
-  // this will force chart to rebuild using new data            
-  //chart.validateData();
 }
 
 // ====================================
@@ -91,8 +88,8 @@ function parseCSV(data){
 
 var map = root.container.children.push(
   am5map.MapChart.new(root, {
-    panX: "none",
-    projection: am5map.geoNaturalEarth1()
+    panX: "rotateX",
+    projection: am5map.geoMercator()
   })
 );
 
@@ -101,7 +98,7 @@ var polygonSeries = map.series.push(
   am5map.MapPolygonSeries.new(root, {
     geoJSON: am5geodata_worldLow,
     exclude: ["AQ"],
-    fill: am5.color(0xbbbbbb),
+    fill: am5.color(0xaaaaaa),
     stroke: am5.color(0xffffff)
   })
 );
@@ -118,39 +115,86 @@ var pointSeries = map.series.push(
 );
 
 polygonSeries.mapPolygons.template.states.create("hover", {
-  fill: am5.color(0x677935)
+  fill: colors.getIndex(9)
 });
 //ICI
+var big_series;
 polygonSeries.mapPolygons.template.events.on("click", (ev) => {
-  console.log("MAYBE ?");
   var dataItem = ev.target.dataItem;
   var data = dataItem.dataContext;
-  selectedCountry = data.name
-  console.log(selectedCountry)
-  var modal = am5.Modal.new(root, {
-  content: "<h3>Hello, I'm modal!</h3><p>Nice to meet you.</p>"+selectedCountry+""
+  selectedCountry = data.name;
+  big_chartdata = []
+
+  //   displaying detailed pie chart for country
+  //--- Getting corresponding pie chart
+  for(var i = 1; i < dataProvider.length; i++){
+    if (dataProvider[i]["gender"] == "Total" && dataProvider[i]["country"] == selectedCountry){ //displaying total number
+      big_chartdata.push({
+        "title": dataProvider[i]["country"],
+        "latitude": lats[dataProvider[i]["country"]],
+        "longitude": longs[dataProvider[i]["country"]],
+        "width": 90,
+        "height": 90,
+        "pieData": [{
+          "category": "Answer #1",
+          "value": dataProvider[i]["percentage"]
+        }, {
+          "category": "Answer #2",
+          "value": dataProvider[i+1]["percentage"]
+        }, {
+          "category": "Answer #3",
+          "value": dataProvider[i+2]["percentage"]
+        }, {
+          "category": "Answer #4",
+          "value": dataProvider[i+3]["percentage"]
+        }, {
+          "category": "Answer #5",
+          "value": dataProvider[i+4]["percentage"]
+        }, {
+          "category": "Answer #6",
+          "value": dataProvider[i+5]["percentage"]
+        }, {
+          "category": "Answer #7",
+          "value": dataProvider[i+6]["percentage"]
+        }, {
+          "category": "Answer #8",
+          "value": dataProvider[i+7]["percentage"]
+        }, {
+          "category": "Answer #9",
+          "value": dataProvider[i+8]["percentage"]
+        }, {
+          "category": "Answer #10",
+          "value": dataProvider[i+9]["percentage"]
+        }, {
+          "category": "Answer #11",
+          "value": dataProvider[i+10]["percentage"]
+        }]
+      })
+      //hiding map and pie charts when the country is found
+      polygonSeries.hide(100);
+      pointSeries.hide(100);
+      break;
+    }
+  }
+  //--- Showing the pie chart
+  var big_chart = root.container.children.push(
+    am5percent.PieChart.new(root, {})
+  );
+
+  big_series = big_chart.series.push(
+    am5percent.PieSeries.new(root, {
+      categoryField: "category",
+      valueField: "value"
+    })
+  );
+  big_series.data.setAll(big_chartdata[0].pieData);
 });
-  modal.open()
 
-});
-
-let previousPolygon = null;
-
-polygonSeries.mapPolygons.template.setAll({
-  toggleKey: 'active',
-});
-
-// polygonSeries.mapPolygons.template.on('active', (active, target) => {
-//   if (previousPolygon && previousPolygon !== target) {
-//     previousPolygon.set('active', false);
-//   }
-//   if (target.get('active')) {
-//     polygonSeries.zoomToDataItem(target.dataItem);
-//   } else {
-//     chart.goHome();
-//   }
-//   previousPolygon = target;
-// });
+window.addEventListener('keydown', (event) => {
+  big_series.hide();
+  polygonSeries.show();
+  pointSeries.show();
+}, false);
 
 
 pointSeries.bullets.push(function(root, series, x) {
@@ -279,7 +323,6 @@ for(var i = 1; i < dataProvider.length; i++){
         "value": dataProvider[i+10]["percentage"]
       }]
     })
-    console.log(charts);
     i=i+11;
   }
 }
@@ -289,7 +332,6 @@ var selected = [ "Canada","Argentina", "Colombia", "Tunisia", "United States", "
 for (var i = 0; i < charts.length; i++) {
   var chart = charts[i];
   if (selected.includes(chart.title)){
-    console.log(chart.title);
     pointSeries.data.push({
       geometry: { type: "Point", coordinates: [chart.longitude, chart.latitude] },
       title: chart.title,
