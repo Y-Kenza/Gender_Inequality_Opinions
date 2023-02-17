@@ -153,32 +153,9 @@ pointSeries.bullets.push(function(root, series, x) {
 // ====================================
 
 var charts = [{
-  "title": "North America",
-  "latitude": 39.563353,
-  "longitude": -99.316406,
-  "width": 100,
-  "height": 100,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 1200
-  }, {
-    "category": "Category #2",
-    "value": 500
-  }, {
-    "category": "Category #3",
-    "value": 765
-  }, {
-    "category": "Category #4",
-    "value": 260
-  },
-  {
-    "category": "Category #5",
-    "value": 160
-  }]
-}, {
-  "title": "Europe",
-  "latitude": 50.896104,
-  "longitude": 19.160156,
+  "title": "Argentina",
+  "latitude": -38.416097,
+  "longitude": -63.616672,
   "width": 50,
   "height": 50,
   "pieData": [{
@@ -192,9 +169,41 @@ var charts = [{
     "value": 350
   }]
 }, {
-  "title": "Asia",
-  "latitude": 47.212106,
-  "longitude": 103.183594,
+  "title": "Australia",
+  "latitude": -25.274398,
+  "longitude": 133.775136,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "Canada",
+  "latitude": 56.130366,
+  "longitude": -106.346771,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "China",
+  "latitude": 	35.86166,
+  "longitude": 	104.195397,
   "width": 80,
   "height": 80,
   "pieData": [{
@@ -211,9 +220,9 @@ var charts = [{
     "value": 199
   }]
 }, {
-  "title": "Africa",
-  "latitude": 11.081385,
-  "longitude": 21.621094,
+  "title": "Colombia",
+  "latitude": 	4.570868,
+  "longitude": -74.297333,
   "width": 50,
   "height": 50,
   "pieData": [{
@@ -229,13 +238,179 @@ var charts = [{
     "category": "Category #4",
     "value": 512
   }]
+}, {
+  "title": "France",
+  "latitude": 46.227638,
+  "longitude": 	2.213749,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "Germany",
+  "latitude": 51.165691,
+  "longitude": 10.451526,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "Great Britain",
+  "latitude": 55.378051,
+  "longitude": -3.435973,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "Japan",
+  "latitude": 		36.204824,
+  "longitude": 		138.252924,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "Kenya",
+  "latitude": 	-0.023559,
+  "longitude": 	37.906193,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "Mexico",
+  "latitude": 	23.634501,
+  "longitude": 	-102.552784,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "New Zealand",
+  "latitude": 	-40.900557,
+  "longitude": 	174.885971,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "South Africa",
+  "latitude": 		-30.559482,
+  "longitude": 		22.937506,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "Switzerland",
+  "latitude": 		46.818188,
+  "longitude": 		8.227512,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
+}, {
+  "title": "United States",
+  "latitude": 37.09024,
+  "longitude": -95.712891,
+  "width": 50,
+  "height": 50,
+  "pieData": [{
+    "category": "Category #1",
+    "value": 200
+  }, {
+    "category": "Category #2",
+    "value": 600
+  }, {
+    "category": "Category #3",
+    "value": 350
+  }]
 }];
+
+var selected = ["Argentina", "Tunisia", "United States", "Switzerland", "France", "New Zealand", "South Africa", "Kenya", "Japan", "China"];
 
 for (var i = 0; i < charts.length; i++) {
   var chart = charts[i];
-  pointSeries.data.push({
-    geometry: { type: "Point", coordinates: [chart.longitude, chart.latitude] },
-    title: chart.title,
-    data: chart
-  });
+  if (selected.includes(chart.title)){
+    console.log(chart.title);
+    pointSeries.data.push({
+      geometry: { type: "Point", coordinates: [chart.longitude, chart.latitude] },
+      title: chart.title,
+      data: chart
+    });
+  }
+  
 }
