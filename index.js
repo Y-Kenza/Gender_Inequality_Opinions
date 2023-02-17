@@ -18,8 +18,11 @@ root.setThemes([
   am5themes_Animated.new(root)
 ]);
 
+// ====================================
+// Getting data from CSV file
+// ====================================
 
-
+var chart;
 var dataProvider;      
 loadCSV("data/data.csv"); 
 
@@ -77,10 +80,11 @@ function parseCSV(data){
       }
   }
   // set data provider to the chart
-  //chart.dataProvider = dataProvider;
+  //dataProvider = dataProvider;
   // this will force chart to rebuild using new data            
   //chart.validateData();
 }
+
 // ====================================
 // Create map
 // ====================================
@@ -149,258 +153,96 @@ pointSeries.bullets.push(function(root, series, x) {
 
 
 // ====================================
-// Create pie charts
+// Create pie charts from CSV data
 // ====================================
 
-var charts = [{
-  "title": "Argentina",
-  "latitude": -38.416097,
-  "longitude": -63.616672,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "Australia",
-  "latitude": -25.274398,
-  "longitude": 133.775136,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "Canada",
-  "latitude": 56.130366,
-  "longitude": -106.346771,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "China",
-  "latitude": 	35.86166,
-  "longitude": 	104.195397,
-  "width": 80,
-  "height": 80,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 352
-  }, {
-    "category": "Category #2",
-    "value": 266
-  }, {
-    "category": "Category #3",
-    "value": 512
-  }, {
-    "category": "Category #4",
-    "value": 199
-  }]
-}, {
-  "title": "Colombia",
-  "latitude": 	4.570868,
-  "longitude": -74.297333,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 300
-  }, {
-    "category": "Category #3",
-    "value": 599
-  }, {
-    "category": "Category #4",
-    "value": 512
-  }]
-}, {
-  "title": "France",
-  "latitude": 46.227638,
-  "longitude": 	2.213749,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "Germany",
-  "latitude": 51.165691,
-  "longitude": 10.451526,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "Great Britain",
-  "latitude": 55.378051,
-  "longitude": -3.435973,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "Japan",
-  "latitude": 		36.204824,
-  "longitude": 		138.252924,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "Kenya",
-  "latitude": 	-0.023559,
-  "longitude": 	37.906193,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "Mexico",
-  "latitude": 	23.634501,
-  "longitude": 	-102.552784,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "New Zealand",
-  "latitude": 	-40.900557,
-  "longitude": 	174.885971,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "South Africa",
-  "latitude": 		-30.559482,
-  "longitude": 		22.937506,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "Switzerland",
-  "latitude": 		46.818188,
-  "longitude": 		8.227512,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}, {
-  "title": "United States",
-  "latitude": 37.09024,
-  "longitude": -95.712891,
-  "width": 50,
-  "height": 50,
-  "pieData": [{
-    "category": "Category #1",
-    "value": 200
-  }, {
-    "category": "Category #2",
-    "value": 600
-  }, {
-    "category": "Category #3",
-    "value": 350
-  }]
-}];
+var charts = new Array();
 
-var selected = ["Argentina", "Tunisia", "United States", "Switzerland", "France", "New Zealand", "South Africa", "Kenya", "Japan", "China"];
+var lats = {
+  "Argentina": -38.416097, 
+  "Australia" :-25.274398, 
+  "Canada" : 56.130366, 
+  "China" : 35.86166, 
+  "Colombia": 4.570868, 
+  "France" : 46.227638,       
+  "Germany" : 51.165691, 
+  "Great Britain" : 55.378051 , 
+  "Japan": 36.204824, 
+  "Kenya" : -0.023559, 
+  "Mexico" : 23.634501, 
+  "New Zealand" : -40.900557, 
+  "South Africa" : -30.559482, 
+  "Switzerland" : 46.818188, 
+  "Tunisia" : 34.698345,
+  "United States" :37.09024};
+
+var longs= {
+  "Argentina": -63.616672, 
+  "Australia" : 133.775136, 
+  "Canada" : -106.346771, 
+  "China" : 104.195397, 
+  "Colombia": -74.297333, 
+  "France" : 2.21374, 
+  "Germany" : 10.451526, 
+  "Great Britain" : -3.435973, 
+  "Japan": 138.252924, 
+  "Kenya" : 37.906193, 
+  "Mexico" : -102.552784, 
+  "New Zealand" : 174.885971, 
+  "South Africa" : 22.937506, 
+  "Switzerland" : 8.227512, 
+  "Tunisia" : 9.460581,
+  "United States" :-95.712891};
+
+for(var i = 1; i < dataProvider.length; i++){
+  if (dataProvider[i]["gender"] == "Total"){ //displaying total number
+    charts.push({
+      "title": dataProvider[i]["country"],
+      "latitude": lats[dataProvider[i]["country"]],
+      "longitude": longs[dataProvider[i]["country"]],
+      "width": 50,
+      "height": 50,
+      "pieData": [{
+        "category": "Category #1",
+        "value": dataProvider[i]["percentage"]
+      }, {
+        "category": "Category #2",
+        "value": dataProvider[i+1]["percentage"]
+      }, {
+        "category": "Category #3",
+        "value": dataProvider[i+2]["percentage"]
+      }, {
+        "category": "Category #4",
+        "value": dataProvider[i+3]["percentage"]
+      }, {
+        "category": "Category #5",
+        "value": dataProvider[i+4]["percentage"]
+      }, {
+        "category": "Category #6",
+        "value": dataProvider[i+5]["percentage"]
+      }, {
+        "category": "Category #7",
+        "value": dataProvider[i+6]["percentage"]
+      }, {
+        "category": "Category #8",
+        "value": dataProvider[i+7]["percentage"]
+      }, {
+        "category": "Category #9",
+        "value": dataProvider[i+8]["percentage"]
+      }, {
+        "category": "Category #10",
+        "value": dataProvider[i+9]["percentage"]
+      }, {
+        "category": "Category #11",
+        "value": dataProvider[i+10]["percentage"]
+      }]
+    })
+    console.log(charts);
+    i=i+11;
+  }
+}
+
+var selected = [ "Canada","Argentina", "Colombia", "Tunisia", "United States", "Switzerland", "France", "New Zealand", "South Africa", "Kenya", "Japan", "China"];
 
 for (var i = 0; i < charts.length; i++) {
   var chart = charts[i];
