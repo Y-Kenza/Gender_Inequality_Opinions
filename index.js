@@ -125,6 +125,24 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
   console.log("MAYBE ?");
 });
 
+let previousPolygon = null;
+
+polygonSeries.mapPolygons.template.setAll({
+  toggleKey: 'active',
+});
+
+polygonSeries.mapPolygons.template.on('active', (active, target) => {
+  if (previousPolygon && previousPolygon !== target) {
+    previousPolygon.set('active', false);
+  }
+  if (target.get('active')) {
+    polygonSeries.zoomToDataItem(target.dataItem);
+  } else {
+    chart.goHome();
+  }
+  previousPolygon = target;
+});
+
 
 pointSeries.bullets.push(function(root, series, x) {
   
@@ -269,5 +287,4 @@ for (var i = 0; i < charts.length; i++) {
       data: chart
     });
   }
-  
 }
