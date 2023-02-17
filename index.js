@@ -19,6 +19,68 @@ root.setThemes([
 ]);
 
 
+
+var dataProvider;      
+loadCSV("data/data.csv"); 
+
+// method which loads external data
+function loadCSV(file) { 
+    if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari
+        var request = new XMLHttpRequest();
+    }
+    else {
+        // code for IE6, IE5
+        var request = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    // load
+    
+    request.open('GET', file, false);
+    request.send();
+    parseCSV(request.responseText);
+}
+
+// method which parses csv data
+function parseCSV(data){ 
+  //replace UNIX new lines
+  data = data.replace (/\r\n/g, "\n");
+  //replace MAC new lines
+  data = data.replace (/\r/g, "\n");
+  //split into rows
+  var rows = data.split("\n");
+  // create array which will hold our data:
+  dataProvider = [];
+
+  // loop through all rows
+  for (var i = 0; i < rows.length; i++){
+      // this line helps to skip empty rows
+      if (rows[i]) {                    
+          // our columns are separated by comma
+          var column = rows[i].split(",");  
+
+          // column is array now 
+          // first item is date
+          var country = column[0];
+          // second item is value of the second column../
+          var gender = column[1];
+          var sampleSize = column[2];
+          var question = column[3];
+          var response = column[4];
+          var percentage = column[5];
+          // third item is value of the fird column 
+
+
+          // create object which contains all these items:
+          var dataObject = {country:country, gender:gender, sampleSize:sampleSize, question:question, response:response, percentage:percentage};
+          // add object to dataProvider array
+          dataProvider.push(dataObject);
+      }
+  }
+  // set data provider to the chart
+  //chart.dataProvider = dataProvider;
+  // this will force chart to rebuild using new data            
+  //chart.validateData();
+}
 // ====================================
 // Create map
 // ====================================
@@ -108,6 +170,10 @@ var charts = [{
   }, {
     "category": "Category #4",
     "value": 260
+  },
+  {
+    "category": "Category #5",
+    "value": 160
   }]
 }, {
   "title": "Europe",
