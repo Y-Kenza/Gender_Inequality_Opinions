@@ -120,6 +120,10 @@ var pointSeries = map.series.push(
 polygonSeries.mapPolygons.template.states.create("hover", {
   fill: am5.color(0x677935)
 });
+//ICI
+polygonSeries.mapPolygons.template.events.on("click", (ev) => {
+  console.log("MAYBE ?");
+});
 
 
 pointSeries.bullets.push(function(root, series, x) {
