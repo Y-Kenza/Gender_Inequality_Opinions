@@ -412,6 +412,19 @@ window.addEventListener('keydown', (event) => {
   var divmvsf = document.getElementById("titreMaleVsFemale");
   var divall = document.getElementById("titreAllGenders");
   var divmap = document.getElementById("titreMap");
+
+  var vem1 = document.getElementById("em1");
+  var vem2 = document.getElementById("em2");
+  var vem3 = document.getElementById("em3");
+  var vem4 = document.getElementById("em4");
+  var vem5 = document.getElementById("em5");
+  var vem6 = document.getElementById("em6");
+  var vem7 = document.getElementById("em7");
+  var vem8 = document.getElementById("em8");
+  var vem9 = document.getElementById("em9");
+  var vem10 = document.getElementById("em10");
+  var vem11 = document.getElementById("em11");
+
   switch (event.key) {
     case "Left": // IE/Edge specific value
     case "ArrowLeft":
@@ -421,9 +434,20 @@ window.addEventListener('keydown', (event) => {
         big_series_male.hide();
         big_series.show();
         divmvsf.style.display = "none";
-        divall.style.display = "block";
-
+        divall.style.display = "block"; 
+        divmap.style.display = "none";
         
+        vem1.style.color = "#e60049";
+        vem2.style.color = "#0bb4ff";
+        vem3.style.color = "#50e991";
+        vem4.style.color = "#e6d800";
+        vem5.style.color = "#9b19f5";
+        vem6.style.color = "#ffa300";
+        vem7.style.color = "#dc0ab4";
+        vem8.style.color = "#b3d4ff";
+        vem9.style.color = "#00bfa0";
+        vem10.style.color = "#095256";
+        vem11.style.color = "#1a53ff";
       }
       break;
     case "Right": // IE/Edge specific value
@@ -435,6 +459,19 @@ window.addEventListener('keydown', (event) => {
         big_series_male.show();
         divmvsf.style.display = "block";
         divall.style.display = "none";
+        divmap.style.display = "none";
+        
+        vem1.style.color = "#65b6db";
+        vem2.style.color = "#6693dd";
+        vem3.style.color = "#6670dc";
+        vem4.style.color = "#8067db";
+        vem5.style.color = "#a366dc";
+        vem6.style.color = "#c766db";
+        vem7.style.color = "#dd67cc";
+        vem8.style.color = "#db66aa";
+        vem9.style.color = "#db66aa";
+        vem10.style.color = "#da6966";
+        vem11.style.color = "#6693dd";
       }
       break;
 
@@ -448,6 +485,18 @@ window.addEventListener('keydown', (event) => {
       divmvsf.style.display = "none";
       divall.style.display = "none";
       divmap.style.display = "block";
+
+      vem1.style.color = "#e60049";
+      vem2.style.color = "#0bb4ff";
+      vem3.style.color = "#50e991";
+      vem4.style.color = "#e6d800";
+      vem5.style.color = "#9b19f5";
+      vem6.style.color = "#ffa300";
+      vem7.style.color = "#dc0ab4";
+      vem8.style.color = "#b3d4ff";
+      vem9.style.color = "#00bfa0";
+      vem10.style.color = "#095256";
+      vem11.style.color = "#1a53ff";
       break;
   }
 }, false);
