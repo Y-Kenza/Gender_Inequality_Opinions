@@ -283,6 +283,8 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
           displayable = true;
           polygonSeries.hide(100);
           pointSeries.hide(100);
+          var divmap = document.getElementById("titreMap");
+          divmap.style.display = "none";
         break;
     }
     break;
@@ -363,8 +365,8 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
 
   // Disabling labels and ticks
   big_series_male.labels.template.set("text", "{category}");
-  big_series_male.labels.template.set("visible", false);
-  big_series_male.ticks.template.set("visible", false);
+  big_series_male.labels.template.set("visible", true);
+  big_series_male.ticks.template.set("visible", true);
 
   big_series_male.hide(100);
   big_series_female.hide(100);
@@ -409,6 +411,7 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
 window.addEventListener('keydown', (event) => {
   var divmvsf = document.getElementById("titreMaleVsFemale");
   var divall = document.getElementById("titreAllGenders");
+  var divmap = document.getElementById("titreMap");
   switch (event.key) {
     case "Left": // IE/Edge specific value
     case "ArrowLeft":
@@ -432,8 +435,6 @@ window.addEventListener('keydown', (event) => {
         big_series_male.show();
         divmvsf.style.display = "block";
         divall.style.display = "none";
-
-
       }
       break;
 
@@ -446,6 +447,7 @@ window.addEventListener('keydown', (event) => {
       pointSeries.show();
       divmvsf.style.display = "none";
       divall.style.display = "none";
+      divmap.style.display = "block";
       break;
   }
 }, false);
