@@ -521,6 +521,7 @@ var lats = {
   "France" : 46.227638,       
   "Germany" : 51.165691, 
   "Great Britain" : 55.378051 , 
+  "India": 20.593684,
   "Japan": 36.204824, 
   "Kenya" : -0.023559, 
   "Mexico" : 23.634501, 
@@ -539,6 +540,7 @@ var longs= {
   "France" : 2.21374, 
   "Germany" : 10.451526, 
   "Great Britain" : -3.435973, 
+  "India": 	78.96288, 
   "Japan": 138.252924, 
   "Kenya" : 37.906193, 
   "Mexico" : -102.552784, 
@@ -599,7 +601,7 @@ var selected = [ "Canada","Argentina", "Colombia", "Tunisia", "United States", "
 
 for (var i = 0; i < charts.length; i++) {
   var chart = charts[i];
-  if (selected.includes(chart.title)){
+  if (true){
     pointSeries.data.push({
       geometry: { type: "Point", coordinates: [chart.longitude, chart.latitude] },
       title: chart.title,
