@@ -314,6 +314,8 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
     strokeWidth: 2
   })
 
+  
+
   big_series_female.labels.template.set("visible", false);
   big_series_female.ticks.template.set("visible", false);
   
@@ -361,8 +363,8 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
 
   // Disabling labels and ticks
   big_series_male.labels.template.set("text", "{category}");
-  big_series_male.labels.template.set("visible", true);
-  big_series_male.ticks.template.set("visible", true);
+  big_series_male.labels.template.set("visible", false);
+  big_series_male.ticks.template.set("visible", false);
 
   big_series_male.hide(100);
   big_series_female.hide(100);
@@ -399,10 +401,14 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
   big_series.labels.template.set("text", "{category}: [bold]{valuePercentTotal.formatNumber('0.00')}%[/]");
 
   big_series.data.setAll(big_chartdata[0].pieData);
+  var divall = document.getElementById("titreAllGenders");
+  divall.style.display = "block";
 
 });
 
 window.addEventListener('keydown', (event) => {
+  var divmvsf = document.getElementById("titreMaleVsFemale");
+  var divall = document.getElementById("titreAllGenders");
   switch (event.key) {
     case "Left": // IE/Edge specific value
     case "ArrowLeft":
@@ -411,6 +417,10 @@ window.addEventListener('keydown', (event) => {
         big_series_female.hide();
         big_series_male.hide();
         big_series.show();
+        divmvsf.style.display = "none";
+        divall.style.display = "block";
+
+        
       }
       break;
     case "Right": // IE/Edge specific value
@@ -420,6 +430,10 @@ window.addEventListener('keydown', (event) => {
         big_series.hide();
         big_series_female.show();
         big_series_male.show();
+        divmvsf.style.display = "block";
+        divall.style.display = "none";
+
+
       }
       break;
 
@@ -430,6 +444,8 @@ window.addEventListener('keydown', (event) => {
       big_series_male.hide();
       polygonSeries.show();
       pointSeries.show();
+      divmvsf.style.display = "none";
+      divall.style.display = "none";
       break;
   }
 }, false);
@@ -591,3 +607,8 @@ for (var i = 0; i < charts.length; i++) {
     });
   }
 }
+var divmvsf = document.getElementById("titreMaleVsFemale");
+var divall = document.getElementById("titreAllGenders");
+  
+divmvsf.style.display = "none";
+divall.style.display = "none";
