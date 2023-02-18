@@ -15,7 +15,82 @@ body {
 #labelsdiv {
   width: 90%;
   margin-left: 5%;
-  height: 20vh;
+  height: auto;
   border: 3px solid rebeccapurple;
 }
 
+#labelsp {
+  font-size: small;
+}
+
+#em1 {
+  font-size: medium;
+  color: #e60049;
+  font-style: normal;
+  font-weight: bold;
+}
+#em2 {
+  font-size: medium;
+  color: #0bb4ff;
+  font-style: normal;
+  font-weight: bold;
+}
+#em3 {
+  font-size: medium;
+  color: #50e991;
+  font-style: normal;
+  font-weight: bold;
+}
+
+#em4 {
+  font-size: medium;
+  color: #e6d800;
+  font-style: normal;
+  font-weight: bold;
+}
+
+#em5 {
+  font-size: medium;
+  color: #9b19f5;
+  font-style: normal;
+  font-weight: bold;
+}
+#em6 {
+  font-size: medium;
+  color: #ffa300;
+  font-style: normal;
+  font-weight: bold;
+}
+
+#em7 {
+  font-size: medium;
+  color: #dc0ab4;
+  font-style: normal;
+  font-weight: bold;
+}
+
+#em8 {
+  font-size: medium;
+  color: #b3d4ff;
+  font-style: normal;
+  font-weight: bold;
+}
+
+#em9 {
+  font-size: medium;
+  color: #00bfa0;
+  font-style: normal;
+  font-weight: bold;
+}
+#em10 {
+  font-size: medium;
+  color: #095256;
+  font-style: normal;
+  font-weight: bold;
+}
+#em11 {
+  font-size: medium;
+  color: #1a53ff;
+  font-style: normal;
+  font-weight: bold;
+}
