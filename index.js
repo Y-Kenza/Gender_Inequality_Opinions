@@ -124,6 +124,7 @@ var big_series;
 var big_series_female;
 var big_series_male;
 var possibleAnswers;
+var displayable = false; 
 polygonSeries.mapPolygons.template.events.on("click", (ev) => {
   var dataItem = ev.target.dataItem;
   var data = dataItem.dataContext;
@@ -279,6 +280,7 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
           "Answer #11": dataProvider[i+10]["response"]
           }
           //hiding map and pie charts when the country is found
+          displayable = true;
           polygonSeries.hide(100);
           pointSeries.hide(100);
         break;
@@ -306,19 +308,6 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
 
   big_series_female.data.setAll(big_chartdata_female[0].pieData);
 
-  big_series_female.get("colors").set("colors", [
-    am5.color(0xe60049),
-    am5.color(0x0bb4ff),
-    am5.color(0x50e991),
-    am5.color(0xe6d800),
-    am5.color(0x9b19f5),
-    am5.color(0xffa300),
-    am5.color(0xdc0ab4),
-    am5.color(0xb3d4ff),
-    am5.color(0x00bfa0),
-    am5.color(0x095256),
-    am5.color(0x1a53ff),
-  ]);
   // Configuring slices
   big_series_female.slices.template.setAll({
     stroke: am5.color(0xffffff),
@@ -337,6 +326,25 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
 
   big_series_male.data.setAll(big_chartdata_male[0].pieData);
 
+  // Configuring slices
+  big_series_male.slices.template.setAll({
+    stroke: am5.color(0xffffff),
+    strokeWidth: 2
+  });
+
+  big_series_female.get("colors").set("colors", [
+    am5.color(0xe60049),
+    am5.color(0x0bb4ff),
+    am5.color(0x50e991),
+    am5.color(0xe6d800),
+    am5.color(0x9b19f5),
+    am5.color(0xffa300),
+    am5.color(0xdc0ab4),
+    am5.color(0xb3d4ff),
+    am5.color(0x00bfa0),
+    am5.color(0x095256),
+    am5.color(0x1a53ff),
+  ]);
   big_series_male.get("colors").set("colors", [
     am5.color(0xe60049),
     am5.color(0x0bb4ff),
@@ -350,12 +358,6 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
     am5.color(0x095256),
     am5.color(0x1a53ff),
   ]);
-
-  // Configuring slices
-  big_series_male.slices.template.setAll({
-    stroke: am5.color(0xffffff),
-    strokeWidth: 2
-  });
 
   // Disabling labels and ticks
   big_series_male.labels.template.set("text", "{category}");
@@ -405,19 +407,24 @@ window.addEventListener('keydown', (event) => {
     case "Left": // IE/Edge specific value
     case "ArrowLeft":
       // Do something for "left arrow" key press.
-      big_series_female.hide();
-      big_series_male.hide();
-      big_series.show();
+      if (displayable) {
+        big_series_female.hide();
+        big_series_male.hide();
+        big_series.show();
+      }
       break;
     case "Right": // IE/Edge specific value
     case "ArrowRight":
       // Do something for "right arrow" key press.
-      big_series.hide();
-      big_series_female.show();
-      big_series_male.show();
+      if (displayable) {
+        big_series.hide();
+        big_series_female.show();
+        big_series_male.show();
+      }
       break;
 
     default:
+      displayable = false;
       big_series.hide();
       big_series_female.hide();
       big_series_male.hide();
