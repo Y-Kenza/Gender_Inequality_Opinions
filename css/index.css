@@ -9,14 +9,14 @@ body {
   width: 90%;
   margin-left: 5%;
   height: 80vh;
-  border: 3px solid rebeccapurple;
+  border: 3px solid rgb(63, 25, 59);
 }
 
 #labelsdiv {
   width: 90%;
   margin-left: 5%;
   height: auto;
-  border: 3px solid rebeccapurple;
+  border: 3px solid rgb(63, 25, 59);
 }
 
 #labelsp {
