@@ -89,7 +89,9 @@ function parseCSV(data){
 var map = root.container.children.push(
   am5map.MapChart.new(root, {
     panX: "rotateX",
-    projection: am5map.geoEquirectangular()
+    projection: am5map.geoEquirectangular(),
+    minZoomLevel: 1,
+    maxZoomLevel: 5
   })
 );
 
