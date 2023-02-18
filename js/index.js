@@ -475,7 +475,8 @@ window.addEventListener('keydown', (event) => {
       }
       break;
 
-    default:
+    case "Escape": // IE/Edge specific value
+    case "Esc":
       displayable = false;
       big_series.hide();
       big_series_female.hide();
