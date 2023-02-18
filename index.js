@@ -189,7 +189,24 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
       valueField: "value"
     })
   );
+
+  big_series.get("colors").set("colors", [
+    am5.color(0xe60049),
+    am5.color(0x0bb4ff),
+    am5.color(0x50e991),
+    am5.color(0xe6d800),
+    am5.color(0x9b19f5),
+    am5.color(0xffa300),
+    am5.color(0xdc0ab4),
+    am5.color(0xb3d4ff),
+    am5.color(0x00bfa0),
+    am5.color(0x095256),
+    am5.color(0x1a53ff),
+  ]);
+
   big_series.data.setAll(big_chartdata[0].pieData);
+
+  
 });
 
 window.addEventListener('keydown', (event) => {
@@ -215,6 +232,20 @@ pointSeries.bullets.push(function(root, series, x) {
     valueField: "value",
     categoryField: "category"
   }));
+
+  series.get("colors").set("colors", [
+    am5.color(0xe60049),
+    am5.color(0x0bb4ff),
+    am5.color(0x50e991),
+    am5.color(0xe6d800),
+    am5.color(0x9b19f5),
+    am5.color(0xffa300),
+    am5.color(0xdc0ab4),
+    am5.color(0xb3d4ff),
+    am5.color(0x00bfa0),
+    am5.color(0x095256),
+    am5.color(0x1a53ff),
+  ]);
   
   series.labels.template.set("forceHidden", true);
   series.ticks.template.set("forceHidden", true);
