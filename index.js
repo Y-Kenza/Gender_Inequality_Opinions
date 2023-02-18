@@ -291,37 +291,37 @@ for(var i = 1; i < dataProvider.length; i++){
       "width": 50,
       "height": 50,
       "pieData": [{
-        "category": "Category #1",
+        "category": "Answer #1",
         "value": dataProvider[i]["percentage"]
       }, {
-        "category": "Category #2",
+        "category": "Answer #2",
         "value": dataProvider[i+1]["percentage"]
       }, {
-        "category": "Category #3",
+        "category": "Answer #3",
         "value": dataProvider[i+2]["percentage"]
       }, {
-        "category": "Category #4",
+        "category": "Answer #4",
         "value": dataProvider[i+3]["percentage"]
       }, {
-        "category": "Category #5",
+        "category": "Answer #5",
         "value": dataProvider[i+4]["percentage"]
       }, {
-        "category": "Category #6",
+        "category": "Answer #6",
         "value": dataProvider[i+5]["percentage"]
       }, {
-        "category": "Category #7",
+        "category": "Answer #7",
         "value": dataProvider[i+6]["percentage"]
       }, {
-        "category": "Category #8",
+        "category": "Answer #8",
         "value": dataProvider[i+7]["percentage"]
       }, {
-        "category": "Category #9",
+        "category": "Answer #9",
         "value": dataProvider[i+8]["percentage"]
       }, {
-        "category": "Category #10",
+        "category": "Answer #10",
         "value": dataProvider[i+9]["percentage"]
       }, {
-        "category": "Category #11",
+        "category": "Answer #11",
         "value": dataProvider[i+10]["percentage"]
       }]
     })
