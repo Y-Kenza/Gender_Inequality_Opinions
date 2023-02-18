@@ -121,64 +121,254 @@ polygonSeries.mapPolygons.template.states.create("hover", {
 });
 //ICI
 var big_series;
+var big_series_female;
+var big_series_male;
+var possibleAnswers;
 polygonSeries.mapPolygons.template.events.on("click", (ev) => {
   var dataItem = ev.target.dataItem;
   var data = dataItem.dataContext;
   selectedCountry = data.name;
   big_chartdata = []
-
+  big_chartdata_male = []
+  big_chartdata_female = []
   //   displaying detailed pie chart for country
   //--- Getting corresponding pie chart
   for(var i = 1; i < dataProvider.length; i++){
-    if (dataProvider[i]["gender"] == "Total" && dataProvider[i]["country"] == selectedCountry){ //displaying total number
-      big_chartdata.push({
-        "title": dataProvider[i]["country"],
-        "latitude": lats[dataProvider[i]["country"]],
-        "longitude": longs[dataProvider[i]["country"]],
-        "width": 90,
-        "height": 90,
-        "pieData": [{
-          "category": "Answer #1",
-          "value": dataProvider[i]["percentage"]
-        }, {
-          "category": "Answer #2",
-          "value": dataProvider[i+1]["percentage"]
-        }, {
-          "category": "Answer #3",
-          "value": dataProvider[i+2]["percentage"]
-        }, {
-          "category": "Answer #4",
-          "value": dataProvider[i+3]["percentage"]
-        }, {
-          "category": "Answer #5",
-          "value": dataProvider[i+4]["percentage"]
-        }, {
-          "category": "Answer #6",
-          "value": dataProvider[i+5]["percentage"]
-        }, {
-          "category": "Answer #7",
-          "value": dataProvider[i+6]["percentage"]
-        }, {
-          "category": "Answer #8",
-          "value": dataProvider[i+7]["percentage"]
-        }, {
-          "category": "Answer #9",
-          "value": dataProvider[i+8]["percentage"]
-        }, {
-          "category": "Answer #10",
-          "value": dataProvider[i+9]["percentage"]
-        }, {
-          "category": "Answer #11",
-          "value": dataProvider[i+10]["percentage"]
-        }]
-      })
-      //hiding map and pie charts when the country is found
-      polygonSeries.hide(100);
-      pointSeries.hide(100);
-      break;
+    if (dataProvider[i]["country"] == selectedCountry){ //finding selected country
+      if (dataProvider[i]["gender"] == "Female") {
+        big_chartdata_female.push({
+          "title": dataProvider[i]["country"],
+          "latitude": lats[dataProvider[i]["country"]],
+          "longitude": longs[dataProvider[i]["country"]],
+          "width": 90,
+          "height": 90,
+          "pieData": [{
+            "category": "Answer #1",
+            "value": dataProvider[i]["percentage"]
+          }, {
+            "category": "Answer #2",
+            "value": dataProvider[i+1]["percentage"]
+          }, {
+            "category": "Answer #3",
+            "value": dataProvider[i+2]["percentage"]
+          }, {
+            "category": "Answer #4",
+            "value": dataProvider[i+3]["percentage"]
+          }, {
+            "category": "Answer #5",
+            "value": dataProvider[i+4]["percentage"]
+          }, {
+            "category": "Answer #6",
+            "value": dataProvider[i+5]["percentage"]
+          }, {
+            "category": "Answer #7",
+            "value": dataProvider[i+6]["percentage"]
+          }, {
+            "category": "Answer #8",
+            "value": dataProvider[i+7]["percentage"]
+          }, {
+            "category": "Answer #9",
+            "value": dataProvider[i+8]["percentage"]
+          }, {
+            "category": "Answer #10",
+            "value": dataProvider[i+9]["percentage"]
+          }, {
+            "category": "Answer #11",
+            "value": dataProvider[i+10]["percentage"]
+          }],
+        })
+        i=i+11;
+      } 
+      if (dataProvider[i]["gender"] == "Male") {
+        big_chartdata_male.push({
+          "title": dataProvider[i]["country"],
+          "latitude": lats[dataProvider[i]["country"]],
+          "longitude": longs[dataProvider[i]["country"]],
+          "width": 90,
+          "height": 90,
+          "pieData": [{
+            "category": "Answer #1",
+            "value": dataProvider[i]["percentage"]
+          }, {
+            "category": "Answer #2",
+            "value": dataProvider[i+1]["percentage"]
+          }, {
+            "category": "Answer #3",
+            "value": dataProvider[i+2]["percentage"]
+          }, {
+            "category": "Answer #4",
+            "value": dataProvider[i+3]["percentage"]
+          }, {
+            "category": "Answer #5",
+            "value": dataProvider[i+4]["percentage"]
+          }, {
+            "category": "Answer #6",
+            "value": dataProvider[i+5]["percentage"]
+          }, {
+            "category": "Answer #7",
+            "value": dataProvider[i+6]["percentage"]
+          }, {
+            "category": "Answer #8",
+            "value": dataProvider[i+7]["percentage"]
+          }, {
+            "category": "Answer #9",
+            "value": dataProvider[i+8]["percentage"]
+          }, {
+            "category": "Answer #10",
+            "value": dataProvider[i+9]["percentage"]
+          }, {
+            "category": "Answer #11",
+            "value": dataProvider[i+10]["percentage"]
+          }],
+        })
+        i=i+11;
+      }
+      if (dataProvider[i]["gender"] == "Total") {
+        big_chartdata.push({
+          "title": dataProvider[i]["country"],
+          "latitude": lats[dataProvider[i]["country"]],
+          "longitude": longs[dataProvider[i]["country"]],
+          "width": 90,
+          "height": 90,
+          "pieData": [{
+            "category": "Answer #1",
+            "value": dataProvider[i]["percentage"]
+          }, {
+            "category": "Answer #2",
+            "value": dataProvider[i+1]["percentage"]
+          }, {
+            "category": "Answer #3",
+            "value": dataProvider[i+2]["percentage"]
+          }, {
+            "category": "Answer #4",
+            "value": dataProvider[i+3]["percentage"]
+          }, {
+            "category": "Answer #5",
+            "value": dataProvider[i+4]["percentage"]
+          }, {
+            "category": "Answer #6",
+            "value": dataProvider[i+5]["percentage"]
+          }, {
+            "category": "Answer #7",
+            "value": dataProvider[i+6]["percentage"]
+          }, {
+            "category": "Answer #8",
+            "value": dataProvider[i+7]["percentage"]
+          }, {
+            "category": "Answer #9",
+            "value": dataProvider[i+8]["percentage"]
+          }, {
+            "category": "Answer #10",
+            "value": dataProvider[i+9]["percentage"]
+          }, {
+            "category": "Answer #11",
+            "value": dataProvider[i+10]["percentage"]
+          }],
+        })
+        possibleAnswers = {
+          "Answer #1": dataProvider[i]["response"],
+          "Answer #2": dataProvider[i+1]["response"],
+          "Answer #3": dataProvider[i+2]["response"],
+          "Answer #4": dataProvider[i+3]["response"],
+          "Answer #5": dataProvider[i+4]["response"],
+          "Answer #6": dataProvider[i+5]["response"],
+          "Answer #7": dataProvider[i+6]["response"],
+          "Answer #8": dataProvider[i+7]["response"],
+          "Answer #9": dataProvider[i+8]["response"],
+          "Answer #10": dataProvider[i+9]["response"],
+          "Answer #11": dataProvider[i+10]["response"]
+          }
+          //hiding map and pie charts when the country is found
+          polygonSeries.hide(100);
+          pointSeries.hide(100);
+        break;
+    }
+    break;
     }
   }
+
+  //------------------------------
+  // Female vs Male pies
+  //------------------------------
+
+  var big_chart_genders = root.container.children.push(
+    am5percent.PieChart.new(root, {
+      radius: am5.percent(90),
+      innerRadius: am5.percent(50)
+    })
+  );
+  big_series_female = big_chart_genders.series.push(
+    am5percent.PieSeries.new(root, {
+      categoryField: "category",
+      valueField: "value"
+    })
+  );
+
+  big_series_female.data.setAll(big_chartdata_female[0].pieData);
+
+  big_series_female.get("colors").set("colors", [
+    am5.color(0xe60049),
+    am5.color(0x0bb4ff),
+    am5.color(0x50e991),
+    am5.color(0xe6d800),
+    am5.color(0x9b19f5),
+    am5.color(0xffa300),
+    am5.color(0xdc0ab4),
+    am5.color(0xb3d4ff),
+    am5.color(0x00bfa0),
+    am5.color(0x095256),
+    am5.color(0x1a53ff),
+  ]);
+  // Configuring slices
+  big_series_female.slices.template.setAll({
+    stroke: am5.color(0xffffff),
+    strokeWidth: 2
+  })
+
+  big_series_female.labels.template.set("visible", false);
+  big_series_female.ticks.template.set("visible", false);
+  
+  big_series_male = big_chart_genders.series.push(
+    am5percent.PieSeries.new(root, {
+      categoryField: "category",
+      valueField: "value"
+    })
+  );
+
+  big_series_male.data.setAll(big_chartdata_male[0].pieData);
+
+  big_series_male.get("colors").set("colors", [
+    am5.color(0xe60049),
+    am5.color(0x0bb4ff),
+    am5.color(0x50e991),
+    am5.color(0xe6d800),
+    am5.color(0x9b19f5),
+    am5.color(0xffa300),
+    am5.color(0xdc0ab4),
+    am5.color(0xb3d4ff),
+    am5.color(0x00bfa0),
+    am5.color(0x095256),
+    am5.color(0x1a53ff),
+  ]);
+
+  // Configuring slices
+  big_series_male.slices.template.setAll({
+    stroke: am5.color(0xffffff),
+    strokeWidth: 2
+  });
+
+  // Disabling labels and ticks
+  big_series_male.labels.template.set("text", "{category}");
+  big_series_male.labels.template.set("visible", true);
+  big_series_male.ticks.template.set("visible", true);
+
+  big_series_male.hide(100);
+  big_series_female.hide(100);
+
+  //---------------------------------
   //--- Showing the pie chart
+  //---------------------------------
+
   var big_chart = root.container.children.push(
     am5percent.PieChart.new(root, {})
   );
@@ -204,15 +394,37 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
     am5.color(0x1a53ff),
   ]);
 
+  big_series.labels.template.set("text", "{category}: [bold]{valuePercentTotal.formatNumber('0.00')}%[/]");
+
   big_series.data.setAll(big_chartdata[0].pieData);
 
-  
 });
 
 window.addEventListener('keydown', (event) => {
-  big_series.hide();
-  polygonSeries.show();
-  pointSeries.show();
+  switch (event.key) {
+    case "Left": // IE/Edge specific value
+    case "ArrowLeft":
+      // Do something for "left arrow" key press.
+      big_series_female.hide();
+      big_series_male.hide();
+      big_series.show();
+      break;
+    case "Right": // IE/Edge specific value
+    case "ArrowRight":
+      // Do something for "right arrow" key press.
+      big_series.hide();
+      big_series_female.show();
+      big_series_male.show();
+      break;
+
+    default:
+      big_series.hide();
+      big_series_female.hide();
+      big_series_male.hide();
+      polygonSeries.show();
+      pointSeries.show();
+      break;
+  }
 }, false);
 
 
