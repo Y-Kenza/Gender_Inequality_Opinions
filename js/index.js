@@ -125,6 +125,7 @@ var big_series_female;
 var big_series_male;
 var possibleAnswers;
 var displayable = false; 
+var titrePays = document.getElementById("titrePays");
 polygonSeries.mapPolygons.template.events.on("click", (ev) => {
   var dataItem = ev.target.dataItem;
   var data = dataItem.dataContext;
@@ -288,6 +289,9 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
           chartbg.style.backgroundColor = 'transparent';
           var divmap = document.getElementById("titreMap");
           divmap.style.display = "none";
+          titrePays.textContent = "Global opinions on gender inequality causes: " + selectedCountry;
+          titrePays.style.textAlign = "center";
+
         break;
     }
     break;
@@ -416,6 +420,8 @@ window.addEventListener('keydown', (event) => {
   var divall = document.getElementById("titreAllGenders");
   var divmap = document.getElementById("titreMap");
   var chartbg = document.getElementById("chartdiv");
+  var titrePaysGenre = document.getElementById("titrePaysGenre");
+  
 
   var vem1 = document.getElementById("em1");
   var vem2 = document.getElementById("em2");
@@ -434,6 +440,8 @@ window.addEventListener('keydown', (event) => {
     case "ArrowLeft":
       // Do something for "left arrow" key press.
       if (displayable) {
+        titrePays.textContent = "Global opinions on gender inequality causes: " + selectedCountry;
+        titrePays.style.textAlign = "center";
         big_series_female.hide();
         big_series_male.hide();
         big_series.show();
@@ -459,6 +467,8 @@ window.addEventListener('keydown', (event) => {
     case "ArrowRight":
       // Do something for "right arrow" key press.
       if (displayable) {
+        titrePaysGenre.textContent = "Men VS Women's opinions on gender inequality causes: " + selectedCountry;
+        titrePaysGenre.style.textAlign = "center";
         big_series.hide();
         big_series_female.show();
         big_series_male.show();
