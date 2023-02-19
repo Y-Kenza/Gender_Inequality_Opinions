@@ -23,6 +23,13 @@ body {
   border-bottom: 3px solid rgb(63, 25, 59);
 }
 
+#labelsTitle {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
 #titreMap {
   width: 90%;
   margin-left: 5%;
