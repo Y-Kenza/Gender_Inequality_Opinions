@@ -6,6 +6,7 @@ body {
 }
 
 #chartdiv {
+  background-color: rgba(123, 218, 223, 0.442);
   width: 90%;
   margin-left: 5%;
   height: 80vh;

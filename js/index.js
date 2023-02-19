@@ -100,7 +100,7 @@ var polygonSeries = map.series.push(
   am5map.MapPolygonSeries.new(root, {
     geoJSON: am5geodata_worldLow,
     exclude: ["AQ"],
-    fill: am5.color(0xaaaaaa),
+    fill: am5.color(0xdbd0af),
     stroke: am5.color(0xffffff)
   })
 );
