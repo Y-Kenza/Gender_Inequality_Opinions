@@ -283,6 +283,9 @@ polygonSeries.mapPolygons.template.events.on("click", (ev) => {
           displayable = true;
           polygonSeries.hide(100);
           pointSeries.hide(100);
+
+          var chartbg = document.getElementById("chartdiv");
+          chartbg.style.backgroundColor = 'transparent';
           var divmap = document.getElementById("titreMap");
           divmap.style.display = "none";
         break;
@@ -412,6 +415,7 @@ window.addEventListener('keydown', (event) => {
   var divmvsf = document.getElementById("titreMaleVsFemale");
   var divall = document.getElementById("titreAllGenders");
   var divmap = document.getElementById("titreMap");
+  var chartbg = document.getElementById("chartdiv");
 
   var vem1 = document.getElementById("em1");
   var vem2 = document.getElementById("em2");
@@ -433,6 +437,7 @@ window.addEventListener('keydown', (event) => {
         big_series_female.hide();
         big_series_male.hide();
         big_series.show();
+        chartbg.style.backgroundColor = 'transparent';
         divmvsf.style.display = "none";
         divall.style.display = "block"; 
         divmap.style.display = "none";
@@ -457,6 +462,7 @@ window.addEventListener('keydown', (event) => {
         big_series.hide();
         big_series_female.show();
         big_series_male.show();
+        chartbg.style.backgroundColor = 'transparent';
         divmvsf.style.display = "block";
         divall.style.display = "none";
         divmap.style.display = "none";
@@ -486,6 +492,7 @@ window.addEventListener('keydown', (event) => {
       divmvsf.style.display = "none";
       divall.style.display = "none";
       divmap.style.display = "block";
+      chartbg.style.backgroundColor = 'rgba(123, 218, 223, 0.442)';
 
       vem1.style.color = "#e60049";
       vem2.style.color = "#0bb4ff";

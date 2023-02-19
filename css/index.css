@@ -17,9 +17,41 @@ body {
   width: 90%;
   margin-left: 5%;
   height: auto;
-  border: 3px solid rgb(63, 25, 59);
+  border-top: 0.5px solid rgb(63, 25, 59);
+  border-left: 3px solid rgb(63, 25, 59);
+  border-right: 3px solid rgb(63, 25, 59);
+  border-bottom: 3px solid rgb(63, 25, 59);
 }
 
+#titreMap {
+  width: 90%;
+  margin-left: 5%;
+  height: auto;
+  border-top: 3px solid rgb(63, 25, 59);
+  border-left: 3px solid rgb(63, 25, 59);
+  border-right: 3px solid rgb(63, 25, 59);
+  border-bottom: 0.5px solid rgb(63, 25, 59);
+}
+
+#titreMaleVsFemale {
+  width: 90%;
+  margin-left: 5%;
+  height: auto;
+  border-top: 3px solid rgb(63, 25, 59);
+  border-left: 3px solid rgb(63, 25, 59);
+  border-right: 3px solid rgb(63, 25, 59);
+  border-bottom: 0.5px solid rgb(63, 25, 59);
+}
+
+#titreAllGenders {
+  width: 90%;
+  margin-left: 5%;
+  height: auto;
+  border-top: 3px solid rgb(63, 25, 59);
+  border-left: 3px solid rgb(63, 25, 59);
+  border-right: 3px solid rgb(63, 25, 59);
+  border-bottom: 0.5px solid rgb(63, 25, 59);
+}
 #labelsp {
   font-size: small;
 }
