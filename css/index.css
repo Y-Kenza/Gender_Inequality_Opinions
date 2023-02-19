@@ -94,3 +94,34 @@ body {
   font-style: normal;
   font-weight: bold;
 }
+
+
+.titleClass {
+  font-size: 40px;
+  font-weight: 300;
+  background-image: linear-gradient(45deg, #553c9a, #200f0c);
+  color: transparent;
+  background-clip: text;
+  margin-left: 3%;
+  -webkit-background-clip: text;
+}
+
+body p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  margin-left: 3%;
+  margin-right: 3%;
+  font-size: 18px;
+}
+
+#analysis {
+  line-height: 32px;
+}
+
+body h3 {
+  margin-left: 3%;
+}
+
+.tab {
+  display: inline-block;
+  margin-left: 40px;
+}
